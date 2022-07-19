@@ -16,7 +16,12 @@ const socketClient = ioClient.connect("http://localhost:5050", {
 });
 
 socketClient.on("serialNumber", function (data) {
+  console.log("serialNumber: " + data);
   io.sockets.emit("serialNumberOnServer", data);
+});
+
+socketClient.on("haveSerial", function (data) {
+  console.log(data);
 });
 
 server.listen(8080, function () {

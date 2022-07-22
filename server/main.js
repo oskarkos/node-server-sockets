@@ -16,7 +16,6 @@ const socketClient = ioClient.connect("http://localhost:5050", {
 });
 
 socketClient.on("serialNumber", function (data) {
-  console.log("serialNumber: " + data);
   io.sockets.emit("serialNumberOnServer", data);
 });
 
